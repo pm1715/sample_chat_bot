@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart AI ChatBot</title>
+    
+    <!-- Import the chatbot component -->
+    <script src="smart-chat-bot.js"></script>
+</head>
+<body>
+    <!-- Add the chatbot -->
+    <smart-chat-bot id="myBot"
+        business-name="AI Assistant"
+        primary-color="#4CAF50"
+        ai-provider="huggingface"
+        model-name="microsoft/DialoGPT-medium">
+    </smart-chat-bot>
+
+    <script>
+        // Alternative way to configure the AI after the component is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatbot = document.querySelector('#myBot');
+            
+            // You can also configure the AI this way
+            chatbot.updateConfig({
+                aiConfig: {
+                    enabled: true,
+                    provider: 'huggingface',
+                    modelName: 'microsoft/DialoGPT-medium',
+                    endpoint: 'https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
